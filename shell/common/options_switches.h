@@ -104,7 +104,6 @@ extern const char kAppUserModelId[];
 
 extern const char kBackgroundColor[];
 extern const char kNodeIntegration[];
-extern const char kDisableRemoteModule[];
 extern const char kContextIsolation[];
 extern const char kGuestInstanceID[];
 extern const char kOpenerID[];

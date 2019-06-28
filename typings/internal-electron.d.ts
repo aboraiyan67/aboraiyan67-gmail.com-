@@ -56,6 +56,7 @@ declare namespace Electron {
     appPath: string;
     contentScripts: ContentScriptEntry;
     preloadScripts: string[];
+    isRemoteModuleEnabled: boolean;
   }
 
   interface IpcRendererInternal extends Electron.IpcRenderer {

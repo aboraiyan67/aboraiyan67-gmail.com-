@@ -56,8 +56,10 @@ const { ipcRendererInternal } = require('@electron/internal/renderer/ipc-rendere
 const ipcRendererUtils = require('@electron/internal/renderer/ipc-renderer-internal-utils')
 
 const {
-  appPath, contentScripts, preloadScripts
+  appPath, contentScripts, preloadScripts, isRemoteModuleEnabled
 } = ipcRendererUtils.invokeSync('ELECTRON_INIT_RENDERER') as Electron.InitRendererPayload
+
+v8Util.setHiddenValue(global, 'enableRemoteModule', isRemoteModuleEnabled)
 
 const { webFrameInit } = require('@electron/internal/renderer/web-frame-init')
 webFrameInit()

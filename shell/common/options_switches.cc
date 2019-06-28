@@ -219,7 +219,6 @@ const char kAppUserModelId[] = "app-user-model-id";
 // The command line switch versions of the options.
 const char kBackgroundColor[] = "background-color";
 const char kNodeIntegration[] = "node-integration";
-const char kDisableRemoteModule[] = "disable-remote-module";
 const char kContextIsolation[] = "context-isolation";
 const char kGuestInstanceID[] = "guest-instance-id";
 const char kOpenerID[] = "opener-id";

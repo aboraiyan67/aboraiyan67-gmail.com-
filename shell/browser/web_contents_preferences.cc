@@ -224,7 +224,8 @@ bool WebContentsPreferences::GetPreference(const base::StringPiece& name,
 }
 
 bool WebContentsPreferences::IsRemoteModuleEnabled() const {
-  return IsEnabled(options::kEnableRemoteModule, true);
+  bool is_devtools = web_contents_->GetVisibleURL().SchemeIs("chrome-devtools");
+  return !is_devtools && IsEnabled(options::kEnableRemoteModule, true);
 }
 
 bool WebContentsPreferences::GetPreloadPath(
@@ -323,10 +324,6 @@ void WebContentsPreferences::AppendCommandLineSwitches(
         command_line->AppendArg(customArg.GetString());
     }
   }
-
-  // Whether to enable the remote module
-  if (!IsRemoteModuleEnabled())
-    command_line->AppendSwitch(switches::kDisableRemoteModule);
 
   // Run Electron APIs and preload script in isolated world
   if (IsEnabled(options::kContextIsolation))
